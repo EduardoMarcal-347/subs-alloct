@@ -24,6 +24,7 @@ dependencies {
 	implementation("org.springframework.session:spring-session-jdbc")
 	implementation("org.postgresql:postgresql:42.7.3")
 	implementation("org.springframework.boot:spring-boot-starter-web")
+	implementation("jakarta.validation:jakarta.validation-api:3.0.2")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.flywaydb:flyway-core")
 	implementation("org.flywaydb:flyway-database-postgresql")

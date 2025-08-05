@@ -5,7 +5,7 @@ import jakarta.persistence.*
 
 @Entity
 @Table(name = "company_card")
-open class CompanyCard: BaseModel() {
+open class CompanyCard: BaseModel {
     @get:Id
     @get:GeneratedValue(strategy = GenerationType.IDENTITY)
     open var id: Int? = null
@@ -18,4 +18,8 @@ open class CompanyCard: BaseModel() {
     @get:ManyToOne()
     @get:JoinColumn(name = "company_id")
     open var company: Company? = null
+
+    constructor(id: Int) {
+        this.id = id
+    }
 }

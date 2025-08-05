@@ -6,7 +6,7 @@ import java.util.*
 
 @Entity
 @Table(name = "subscription")
-open class Subscription : BaseModel() {
+open class Subscription : BaseModel {
     @get:Id
     @get:GeneratedValue(strategy = GenerationType.UUID)
     open var id: UUID? = null
@@ -19,4 +19,10 @@ open class Subscription : BaseModel() {
     open var companyCard: CompanyCard? = null
 
     open var costumerId: UUID? = null
+
+    constructor( expanseType: ExpanseType, companyCard: CompanyCard, costumerId: UUID ) {
+        this.expanseType = expanseType
+        this.companyCard = companyCard
+        this.costumerId = costumerId
+    }
 }
