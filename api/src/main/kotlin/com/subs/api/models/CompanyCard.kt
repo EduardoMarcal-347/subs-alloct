@@ -1,5 +1,6 @@
 package com.subs.api.models
 
+import com.subs.api.dto.response.CompanyCardRes
 import com.subs.api.enums.PlanType
 import jakarta.persistence.*
 
@@ -23,3 +24,9 @@ open class CompanyCard: BaseModel {
         this.id = id
     }
 }
+
+fun CompanyCard.toDto(): CompanyCardRes = CompanyCardRes(
+    planType = planType ?: throw RuntimeException("PlanType must not be null"),
+    price = price ?: throw RuntimeException("Price must not be null"),
+    company = company?.toDto() ?: throw RuntimeException("Company must not be null")
+)

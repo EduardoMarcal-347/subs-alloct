@@ -1,5 +1,6 @@
 package com.subs.api.models
 
+import com.subs.api.dto.response.CompanyRes
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
@@ -18,3 +19,7 @@ open class Company : BaseModel() {
 
     open var document: String? = null
 }
+
+fun Company.toDto(): CompanyRes = CompanyRes(
+    name = name ?: throw RuntimeException("Company name cannot be null")
+)

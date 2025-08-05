@@ -1,5 +1,6 @@
 package com.subs.api.models
 
+import com.subs.api.dto.response.SubscriptionRes
 import com.subs.api.enums.ExpanseType
 import jakarta.persistence.*
 import java.util.*
@@ -26,3 +27,8 @@ open class Subscription : BaseModel {
         this.costumerId = costumerId
     }
 }
+
+fun Subscription.toDto(): SubscriptionRes = SubscriptionRes(
+    expanseType = expanseType,
+    companyCard = companyCard?.toDto() ?: throw RuntimeException("Company card must not be null")
+)
