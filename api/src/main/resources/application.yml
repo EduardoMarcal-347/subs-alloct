@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: api
+  datasource:
+    url: ${DATASOURCE_URL}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+    hikari:
+      maximum-pool-size: 20
+      connection-timeout: 30000
+  jackson:
+    date-format: dd/MM/yyyy HH:mm:ss
+  jpa:
+    hibernate:
+      ddl-auto: validate
+  session:
+    store-type: jdbc
+  flyway:
+    locations: db/migration
+    validate-migration-naming: true
