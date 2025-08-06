@@ -4,10 +4,10 @@ import com.subs.api.dto.request.SubscriptionReq
 import com.subs.api.dto.httpentity.ResponseDTO
 import com.subs.api.dto.response.SubscriptionRes
 import com.subs.api.service.SubscriptionService
+import jakarta.validation.Valid
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Controller
-import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
@@ -19,10 +19,10 @@ class SubscriptionController(
 ) {
 
     @PostMapping()
-    fun <T> create(@RequestBody @Validated req: SubscriptionReq): ResponseEntity<ResponseDTO<SubscriptionRes>> {
+    fun create(@RequestBody @Valid req: SubscriptionReq): ResponseEntity<ResponseDTO<SubscriptionRes>> {
         return ResponseEntity
             .status(HttpStatus.CREATED)
-            .body(service.createSubscription())
+            .body(service.createSubscription(req))
     }
 
 }
