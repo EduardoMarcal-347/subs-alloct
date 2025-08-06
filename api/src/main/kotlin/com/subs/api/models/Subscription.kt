@@ -7,19 +7,19 @@ import java.util.*
 
 @Entity
 @Table(name = "subscription")
-open class Subscription : BaseModel {
+class Subscription : BaseModel {
     @get:Id
     @get:GeneratedValue(strategy = GenerationType.UUID)
-    open var id: UUID? = null
+    var id: UUID? = null
 
     @get:Enumerated(EnumType.STRING)
-    open var expanseType: ExpanseType? = null
+    var expanseType: ExpanseType? = null
 
     @get:ManyToOne
     @get:JoinColumn(name = "company_card_id")
-    open var companyCard: CompanyCard? = null
+    var companyCard: CompanyCard? = null
 
-    open var costumerId: UUID? = null
+    var costumerId: UUID? = null
 
     constructor( expanseType: ExpanseType, companyCard: CompanyCard, costumerId: UUID ) {
         this.expanseType = expanseType
